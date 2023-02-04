@@ -2,13 +2,13 @@
 
 class Request
 {
-    public $params;
+    public array $params;
     public string $contentType;
 
     /**
-     * @param $params
+     * @param array $params
      */
-    public function __construct($params = [])
+    public function __construct(array $params = [])
     {
         $this->params = $params;
         $this->contentType = !empty($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : 'application/json';
@@ -39,7 +39,6 @@ class Request
         if (!preg_match($regex, $_POST['email'])) { // email validation.
             $errors[] = 'Email should be valid!.';
         }
-
         return $errors;
     }
 }

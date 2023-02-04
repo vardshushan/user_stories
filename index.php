@@ -14,13 +14,13 @@ require_once __DIR__ . '/controller/UserController.php';
 Route::add('GET', '/', function () {
     include('views/login.php');
 }, false);
+
 Route::add('GET', '/login', function () {
     include('views/login.php');
 }, false);
 
 Route::add('GET', '/register', function () {
     echo (new AuthController())->registerPage();
-
 }, false);
 
 Route::add('POST', '/api/auth/register', function (Request $request) {

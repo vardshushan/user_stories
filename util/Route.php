@@ -7,18 +7,15 @@ class Route
 {
     private static array $get_routes = array();
     private static array $post_routes = array();
-    private static array $put_routes = array();
-    private static array $delete_routes = array();
-    private static array $patch_routes = array();
 
     /**
      * @param $request_method
      * @param $expression
      * @param $function
-     * @param $enable_auth
+     * @param bool $enable_auth
      * @return void
      */
-    public static function add($request_method, $expression, $function, $enable_auth = true)
+    public static function add($request_method, $expression, $function, bool $enable_auth = true)
     {
         switch ($request_method) {
             case 'GET':
@@ -30,20 +27,6 @@ class Route
                 break;
             case 'POST':
                 self::$post_routes[] = array(
-                    'expression' => $expression,
-                    'function' => $function,
-                    'enable_auth' => $enable_auth
-                );
-                break;
-            case 'PUT':
-                self::$put_routes[] = array(
-                    'expression' => $expression,
-                    'function' => $function,
-                    'enable_auth' => $enable_auth
-                );
-                break;
-            case 'PATCH':
-                self::$patch_routes[] = array(
                     'expression' => $expression,
                     'function' => $function,
                     'enable_auth' => $enable_auth
@@ -68,15 +51,6 @@ class Route
                 break;
             case 'POST':
                 $routes = self::$post_routes;
-                break;
-            case 'PUT':
-                $routes = self::$put_routes;
-                break;
-            case 'PATCH':
-                $routes = self::$patch_routes;
-                break;
-            case 'DELETE':
-                $routes = self::$delete_routes;
                 break;
             default:
                 break;

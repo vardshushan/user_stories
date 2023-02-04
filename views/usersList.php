@@ -1,12 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<?php
+include("header.php");
+?>
 
 <h1>Users List</h1>
 <form action="/api/get-users-list" method="post">
@@ -37,5 +31,6 @@ foreach ($users as $key => $user) {
     <h3> Type: <?php echo $user['type'] ?></h3>
     <br>
 <?php } ?>
-</body>
-</html>
+<?php
+include("footer.php");
+?>
