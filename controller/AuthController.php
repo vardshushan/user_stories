@@ -34,10 +34,8 @@ class AuthController
                 $_POST['field_id'], $_POST['description'], $_POST['education'], $_POST['experience'], $_POST['about']);
             header("Location: /login");
             exit();
-        } else {
-              return  Response::sendWithCode(401, json_encode($errors));
         }
-
+        return Response::sendWithCode(401, json_encode($errors));
     }
 
     /**

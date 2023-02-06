@@ -45,17 +45,6 @@ class Field
     }
 
     /**
-     * @return false|string
-     */
-    public function toJson()
-    {
-        return json_encode(array(
-            'id' => $this->getId(),
-            'name' => $this->getName()
-        ));
-    }
-
-    /**
      * @return array
      */
     public function toAssoc(): array

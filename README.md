@@ -23,7 +23,7 @@ PRIMARY KEY (`id`) );``
 `experience` VARCHAR(255),
 `about` VARCHAR(255),
 `about` VARCHAR(255),
-`registered_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+`registered_at` DATETIME DEFAULT CURRENT_TIMESTAMP  NOT NULL,
 PRIMARY KEY (`id`),
 FOREIGN KEY (`field_id`) REFERENCES Fields(`id`)
 );``

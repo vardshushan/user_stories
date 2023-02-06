@@ -37,12 +37,10 @@ class Token
             $token = static::getBearerToken($headers);
             if (!is_null($token)) {
                 return static::validateJWTFromUser($token);
-            } else {
-                return false;
             }
-        } else {
             return false;
         }
+        return false;
     }
 
     /**
@@ -51,7 +49,7 @@ class Token
     public static function getAuthorization(): ?string
     {
         $headers = null;
-        if (isset($_COOKIE['Authorization'])) { //Nginx or fast CGI
+        if (isset($_COOKIE['Authorization'])) {
             $headers = trim($_COOKIE['Authorization']);
         }
 

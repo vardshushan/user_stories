@@ -90,12 +90,11 @@ class Route
         if (Constants::JWT["TOKEN_AUTHENTICATION"]) {
             if (Token::authenticate()) {
                 return true;
-            } else {
-                echo Response::sendWithCode(401, "Invalid token. Please login.");
-                return false;
             }
-        } else {
-            return true;
+            echo Response::sendWithCode(401, "Invalid token. Please login.");
+            return false;
         }
+        return true;
+
     }
 }

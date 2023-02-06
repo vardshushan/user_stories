@@ -92,13 +92,11 @@ class UserController
 
             if ($this->userModel->update($user)) {
                 header("Location: /dashboard");
-
-            } else {
-                return Response::sendWithCode(500, "Something went wrong!");
+                exit();
             }
-        } else {
-            return Response::sendWithCode(401, json_encode($errors));
+            return Response::sendWithCode(500, "Something went wrong!");
         }
+        return Response::sendWithCode(401, json_encode($errors));
     }
 
     /**
@@ -112,8 +110,7 @@ class UserController
         include("views/usersList.php");
         if ($users) {
             return json_encode($users);
-        } else {
-            return Response::sendWithCode(400, "No results found!");
         }
+        return Response::sendWithCode(400, "No results found!");
     }
 }
